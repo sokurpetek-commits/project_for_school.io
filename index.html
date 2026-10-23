@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Профориентационный тест для школьников</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header><div class="wrap">
+  <b onclick="showPage('home')">Профориентация</b>
+  <nav>
+    <button data-page="home" onclick="showPage('home')">Главная</button>
+    <button data-page="about" onclick="showPage('about')">О проекте</button>
+    <button data-page="test" onclick="showPage('test')">Тест</button>
+  </nav>
+</div></header>
+
+<div id="page-home" class="page">
+  <div class="hero">
+    <p class="school">ГБОУ Школа №1194, Зеленоград</p>
+    <p class="kind">Индивидуальный проект</p>
+    <h1>Профориентационный тест для школьников</h1>
+    <p>Авторы: Цветкова София, Кочелаева Мария, ученицы 10 «Ж» класса</p>
+    <p>Руководитель: Кудряшова Екатерина Александровна</p>
+    <p class="year">Зеленоград, 2026</p>
+    <button class="primary" onclick="showPage('test')">Перейти к тесту</button>
+  </div>
+</div>
+
+<div id="page-about" class="page"><div class="wrap">
+  <h2>О проекте</h2>
+  <div class="card">
+    <p><b>Цель:</b> помочь школьникам 8–11 классов осознанно выбрать будущую профессию с помощью доступного интерактивного инструмента.</p>
+    <p>Тест ветвящийся: вы отвечаете «Нравится», «Не нравится» или «Не знаю», и каждый следующий вопрос зависит от предыдущего ответа. Так тест шаг за шагом сужает круг и подбирает профессию, которая подходит именно вам. В тесте 285 вопросов и 180 профессий из IT и данных, техники и робототехники, науки и медицины, творчества и дизайна, маркетинга, управления и финансов, образования. Результат помогает ориентироваться в выборе, но не заменяет консультацию специалиста. Регистрация не нужна.</p>
+    <p>Авторы: Цветкова София, Кочелаева Мария. Школьный проект, 2026.</p>
+  </div>
+</div></div>
+
+<div id="page-test" class="page"><div class="wrap">
+  <h2>Тест</h2>
+
+  <div id="start" class="card">
+    <p>Тест подстраивается под ваши ответы: каждый следующий вопрос зависит от предыдущего. Отвечайте «Нравится», «Не нравится» или «Не знаю», и тест сам подберёт подходящую профессию.</p>
+    <p>Правильных ответов нет, выбирайте то, что действительно ближе.</p>
+    <button class="primary" onclick="startTest()">Начать тест</button>
+  </div>
+
+  <div id="quiz" class="card hidden">
+    <div class="count" id="counter"></div>
+    <div class="question" id="questionText"></div>
+    <div class="answers">
+      <button onclick="answer('l')">Нравится</button>
+      <button onclick="answer('d')">Не нравится</button>
+      <button onclick="answer('u')">Не знаю</button>
+    </div>
+    <div style="margin-top:12px"><button onclick="goBack()">← Назад</button></div>
+  </div>
+
+  <div id="result" class="card hidden">
+    <h2 style="margin-top:0">Ваш результат</h2>
+    <p>Вам подходит профессия:</p>
+    <div class="job-title" id="jobTitle"></div>
+    <details><summary>Как вы пришли к результату</summary><ol id="pathList"></ol></details>
+    <button onclick="goBack()">← Назад</button>
+    <button class="primary" onclick="startTest()">Пройти заново</button>
+  </div>
+
+</div></div>
+
+<script src="script.js"></script>
+</body>
+</html>
